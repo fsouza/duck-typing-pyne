@@ -1,0 +1,12 @@
+#Cover h2, #Cover header {
+	margin-bottom: 0;
+}
+
+#Cover .sub {
+	margin-bottom: 50px;
+}
+
+#Cover img, #ThankYou img {
+	display: block;
+	margin: 0 auto 40px;
+}
