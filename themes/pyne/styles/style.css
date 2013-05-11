@@ -189,6 +189,9 @@ BODY {
     background:none;
     color:#888;
 }
+.slide pre.strike {
+    text-decoration: line-through;
+}
 
 /* Cover */
 .slide.cover section {
