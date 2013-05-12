@@ -198,6 +198,118 @@ def quack(duck):
 			</section>
 		</div>
 	</div>
+	<div class="slide" id="APIAgain">
+		<div>
+			<section>
+				<header>
+					<h2>Construção de APIs mais expressivas</h2>
+				</header>
+			<div class="build">
+<pre class="mark-code build">
+from django.db import models
+
+class Person(models.Model):
+    # fields declaration
+
+    def serialize(self, serializer):
+        <mark>serializer.serialize(self)</mark>
+</pre>
+			</div>
+			</section>
+		</div>
+	</div>
+	<div class="slide" id="Serializer">
+		<div>
+			<section>
+				<header>
+					<h2>Serializer?</h2>
+				</header>
+				<ul class="build-list">
+					<li>Classe abstrata?</li>
+					<li>Interface?!</li>
+				</ul>
+			</section>
+		</div>
+	</div>
+	<div class="slide" id="Serializers>
+		<div>
+			<section>
+				<header>
+					<h2>Serializer?</h2>
+				</header>
+<pre>
+class JSONSerializer(object):
+
+    def serialize(self, model):
+	# convert model to JSON
+</pre>
+<pre class="build">
+class XMLSerializer(object):
+
+    def serialize(self, model):
+	# convert model to XML
+</pre>
+<pre class="build">class YAMLSerializer</pre>
+			</section>
+		</div>
+	</div>
+	<div class="slide" id="SerializerBetter">
+		<div>
+			<section>
+				<header>
+					<h2>Ainda melhor...</h2>
+				</header>
+<pre class="mark-code built">
+from django.db import models
+
+class Person(models.Model):
+    # fields declaration
+
+    def serialize(self, <mark>serialize_func</mark>):
+        <mark class="another">serialize_func(self)</mark>
+</pre>
+			</section>
+		</div>
+	</div>
+	<div class="slide" id="Components">
+		<div>
+			<section>
+				<header>
+					<h2>Aplicável em outros componentes</h2>
+				</header>
+			</section>
+		</div>
+	</div>
+	<div class="slide" id="FileExample">
+		<div>
+			<section>
+				<header>
+					<h2>Mais um exemplo...</h2>
+				</header>
+<pre>
+def copy(dst, src, filter):
+    for line in src:
+        if filter(line):
+            dst.write(line)
+</pre>
+<pre class="build">
+src_file = open("/etc/passwd")
+dst_file = open("/etc/passwd.bkp", "w")
+copy(dst_file, src_file, lambda l: l.startswith("a"))
+</pre>
+			</section>
+		</div>
+	</div>
+	<div class="slide cover w" id="Hands">
+		<div>
+			<section>
+				<header>
+					<h2 class="right">Hands on</h2>
+				</header>
+				<img src="pictures/hands-on.gif">
+			</section>
+		</div>
+	</div>
 	<div class="slide shout cover black" id="OneMoreThing">
 		<div>
 			<section>
