@@ -96,6 +96,108 @@ values = [10, 2.0, "Francisco", 2.0+2j, datetime.datetime.now()]
 			</section>
 		</div>
 	</div>
+	<div class="slide quote" id="AlexMartelli">
+		<div>
+			<section>
+				<blockquote>
+					<p>In other words, don't check whether it IS-a duck: check whether it QUACKS-like-a duck, WALKS-like-a duck, etc, etc, [...]</p>
+				</blockquote>
+				<p>- Alex Martelli</p>
+			</section>
+		</div>
+	</div>
+	<div class="slide" id="FirstDuck">
+		<div>
+			<section>
+<pre class="mark-code build">
+class Duck(object):
+    def walk(self):
+        pass
+
+    def quack(self):
+        pass
+
+
+def quack(duck):
+    if <mark>isinstance(duck, Duck)</mark>:
+        duck.quack()
+</pre>
+			</section>
+		</div>
+	</div>
+	<div class="slide" id="SecondDuck">
+		<div>
+			<section>
+<pre class="mark-code build built">
+class Duck(object):
+    def walk(self):
+        pass
+
+    def quack(self):
+        pass
+
+
+def quack(duck):
+    if <mark>hasattr(duck, "quack")</mark>:
+        duck.quack()
+</pre>
+			</section>
+		</div>
+	</div>
+	<div class="slide" id="SecondDuckNotCallable">
+		<div>
+			<section>
+<pre>
+>>> duck = Duck()
+>>> duck.quack = 10
+>>> def quack(duck):
+...     if hasattr(duck, "quack"):
+...         duck.quack()
+...
+>>> quack(duck)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 3, in quack
+TypeError: 'int' object is not callable
+</pre>
+			</section>
+		</div>
+	</div>
+	<div class="slide" id="ThirdDuck">
+		<div>
+			<section>
+<pre class="mark-code build built">
+class Duck(object):
+    def walk(self):
+        pass
+
+    def quack(self):
+        pass
+
+
+def quack(duck):
+    if <mark>hasattr(duck, "quack")</mark><mark class="another"> and callable(duck.quack)</mark>:
+        duck.quack()
+</pre>
+			</section>
+		</div>
+	</div>
+	<div class="slide center" id="Chan">
+		<div>
+			<section>
+				<img src="pictures/chan.png">
+			</section>
+		</div>
+	</div>
+	<div class="slide shout" id="AskForgiveness">
+		<div>
+			<section>
+				<header>
+					<h2>Ask forgiveness, not permission</h2>
+				</header>
+			</section>
+		</div>
+	</div>
 	<div class="slide shout cover black" id="OneMoreThing">
 		<div>
 			<section>
