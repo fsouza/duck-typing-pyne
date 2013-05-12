@@ -494,9 +494,9 @@ BODY {
 }
 .slide.cover.w header h2 {
 	background-color: #000;
-	background-color: rgba(0, 0, 0, .65);
-	border-top-right-radius: 8px;
-	border-bottom-right-radius: 8px;
+	background-color: rgba(0, 0, 0, .80);
+	border-top-right-radius: 11px;
+	border-bottom-right-radius: 11px;
 	color: #FFF;
 	font-size: 80px;
 	left: 0;
@@ -506,8 +506,8 @@ BODY {
 }
 .slide.cover.w header h2.right {
 	border-radius: 0;
-	border-top-left-radius: 8px;
-	border-bottom-left-radius: 8px;
+	border-top-left-radius: 11px;
+	border-bottom-left-radius: 11px;
 	left: auto;
 	right: 0;
 	padding: 10px 100px 10px 30px;
