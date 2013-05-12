@@ -33,8 +33,8 @@ BODY {
 /* Header */
 .slide header {
 	margin:0 0 40px;
-	color:#000;
-	font:bold 40px/1.13 'PT Sans Narrow', sans-serif;
+	color:#333;
+	font: bold 54px/1.13 'PT Sans Narrow', sans-serif;
 	z-index: 20;
 }
 .slide header p.build {
