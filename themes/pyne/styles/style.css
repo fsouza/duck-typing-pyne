@@ -523,12 +523,10 @@ BODY {
 }
 .slide.quote blockquote {
 	font-size: 40px;
+	margin-top: 20px;
 }
 .slide.quote section > p {
 	font-size: 24px;
-	margin-top: 100px;
-}
-.slide.quote blockquote {
 	margin-top: 100px;
 }
 .slide section > div.build.overlay {
