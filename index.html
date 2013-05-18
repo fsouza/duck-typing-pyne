@@ -296,7 +296,7 @@ def copy(dst, src, filter):
 <pre class="build">
 src_file = open("/etc/passwd")
 dst_file = open("/etc/passwd.bkp", "w")
-copy(dst_file, src_file, lambda l: l.startswith("a"))
+copy(dst_file, src_file, lambda line: line.startswith("a"))
 </pre>
 			</section>
 		</div>
