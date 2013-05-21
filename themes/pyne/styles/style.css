@@ -240,6 +240,10 @@ BODY {
 	text-align: left;
 }
 
+.slide section header h2 strong {
+	text-decoration: underline;
+}
+
 /* Shout */
 .slide.shout section:before {
 	display:none;
