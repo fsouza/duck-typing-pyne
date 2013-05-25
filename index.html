@@ -352,6 +352,32 @@ copy(dst_file, src_file, lambda line: line.startswith("a"))
 			</section>
 		</div>
 	</div>
+	<div class="slide" id="Exceptions">
+		<div>
+			<section>
+				<header>
+					<h2>Exceções</h2>
+				</header>
+				<p>Até que ponto deixar as exceções fluírem?</p>
+<pre class="build">
+connect_to_database(server="127.0.0.1:27017", database="python_ne")
+</pre>
+<pre class="build">
+KeyError: 'python_ne'
+</pre>
+			</section>
+		</div>
+	</div>
+	<div class="slide" id="Exception2">
+		<div>
+			<section>
+				<header>
+					<h2>Exceções</h2>
+				</header>
+				<p>No caso de APIs públicas, não deixe de documentar como sua API pode falhar!</p>
+			</section>
+		</div>
+	</div>
 	<div class="slide" id="Container">
 		<div>
 			<section>
@@ -431,32 +457,6 @@ def get(name):
     except KeyError:
         raise BackendNotRegisteredError(name)
 </pre>
-			</section>
-		</div>
-	</div>
-	<div class="slide" id="Exceptions">
-		<div>
-			<section>
-				<header>
-					<h2>Exceções</h2>
-				</header>
-				<p>Até que ponto deixar as exceções fluírem?</p>
-<pre class="build">
-connect_to_database(server="127.0.0.1:27017", database="python_ne")
-</pre>
-<pre class="build">
-KeyError: 'python_ne'
-</pre>
-			</section>
-		</div>
-	</div>
-	<div class="slide" id="Exception2">
-		<div>
-			<section>
-				<header>
-					<h2>Exceções</h2>
-				</header>
-				<p>No caso de APIs públicas, não deixe de documentar como sua API pode falhar!</p>
 			</section>
 		</div>
 	</div>
