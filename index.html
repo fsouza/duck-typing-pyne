@@ -352,13 +352,85 @@ copy(dst_file, src_file, lambda line: line.startswith("a"))
 			</section>
 		</div>
 	</div>
-	<div class="slide cover w" id="Hands">
+	<div class="slide" id="Container">
 		<div>
 			<section>
 				<header>
-					<h2 class="right">Hands on</h2>
+					<h2>Gerenciador de containers</h2>
 				</header>
-				<img src="pictures/hands-on.gif">
+				<p>Vamos montar um simples gerenciador de containers de aplicações.</p>
+				<p class="build">O gerenciador será uma biblioteca, com suporte a backends (OpenVZ, LXC, etc.).</p>
+			</section>
+		</div>
+	</div>
+	<div class="slide" id="ContainerCont">
+		<div>
+			<section>
+				<header>
+					<h2>Gerenciador de containers (cont.)</h2>
+				</header>
+				<p>O pacote terá as seguintes funções:</p>
+				<ul>
+					<li><code>register</code>: registra backends</li>
+					<li><code>set</code>: define o backend atual, em uso pelo pacote</li>
+					<li><code>create</code>: cria um novo container</li>
+					<li><code>destroy</code>: apaga um container</li>
+				</ul>
+			</section>
+		</div>
+	</div>
+	<div class="slide" id="ContainerManageBackends">
+		<div>
+			<section>
+				<header>
+					<h2>Gerenciando backends</h2>
+				</header>
+<pre class="build-code">
+def register(backend):
+    _manager[<mark>backend.name</mark>] = backend
+</pre>
+<pre class="build-code">
+def set(name):
+    global _current
+    try:
+        _current = _managers[name]
+    except <mark>KeyError</mark>:
+        raise BackendNotRegisteredError(name)
+</pre>
+			</section>
+		</div>
+	</div>
+	<div class="slide" id="ContainerManageContainers">
+		<div>
+			<section>
+				<header>
+					<h2>Gerenciando containers</h2>
+				</header>
+<pre class="build-code">
+def create(id, *args, **kwargs):
+    return <mark>_current.create</mark>(id, *args, **kwargs)
+
+
+def destroy(id, *args, **kwargs):
+    return <mark>_current.destroy</mark>(id, *args, **kwargs)
+</pre>
+			</section>
+		</div>
+	</div>
+	<div class="slide" id="ContainerAlternative">
+		<div>
+			<section>
+				<header>
+					<h2>Alternativa</h2>
+				</header>
+				<p>Ao invés de implementar as funções <code>set</code>, <code>create</code> e <code>destroy</code>, poderíamos simplesmente ter a função <code>get</code>, que retornaria um manager. Daí poderíamos usar os métodos create e destroy nos managers:</p>
+<pre class="build">
+def get(name):
+    try:
+        return _managers[name]
+    except KeyError:
+        raise BackendNotRegisteredError(name)
+</pre>
 			</section>
 		</div>
 	</div>
